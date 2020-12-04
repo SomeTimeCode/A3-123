@@ -9,9 +9,6 @@ void *simpleRobotRoutine(void *arg) {
 #endif 
   int jobID;
   while (!queueIsEmpty(task->jobQ)) {
-    if(getNumFreeSpace() == 0){
-      continue;
-    }
     queueDequeueFront(task->jobQ, &jobID);
 #ifdef DEBUG
     debug_printf(__func__, "Robot%c[%d]: working on job %d...\n", 
